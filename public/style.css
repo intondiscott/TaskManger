@@ -1,0 +1,23 @@
+body{
+    background-color: blanchedalmond;
+}
+.container{
+    width:50%;
+    text-align: center;
+    font-size: 1.9rem;
+    
+}
+.task{
+   margin-right: 50%;
+   
+}
+.tasks.task,.check,.button{
+    font-weight: bold;
+    font-family: monospace;
+    display:flex;
+    justify-content: space-around;
+   float: left;   
+}
+.toggle{
+    text-decoration: line-through;
+}
