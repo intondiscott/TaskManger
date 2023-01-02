@@ -5,7 +5,7 @@ const lookUp = async () => {
   try {
     const {
       data: { task },
-    } = await axios.get("/api");
+    } = await axios.get("/app");
     if (task < 1) {
       const show = document.createElement("h2");
       const text = document.createTextNode(
@@ -37,7 +37,7 @@ const lookUp = async () => {
         e.preventDefault();
 
         try {
-          await axios.patch(`api/${taskID}`, {
+          await axios.patch(`app/${taskID}`, {
             name,
             completed: crossOff.checked,
           });
@@ -48,7 +48,7 @@ const lookUp = async () => {
       };
       del.addEventListener("click", async (e) => {
         e.preventDefault();
-        await axios.delete(`api/${taskID}`);
+        await axios.delete(`app/${taskID}`);
         document.body.removeChild(tasks);
         document.body.removeChild(crossOff);
         document.body.removeChild(del);
@@ -75,8 +75,10 @@ button.addEventListener("click", async (e) => {
   e.preventDefault();
   const name = text_val.value;
   try {
-    await axios.post("api", { name });
+    await axios.post("app", { name });
     window.location.reload();
     text_val.value = "";
-  } catch (error) {}
+  } catch (error) {
+    console.log({ msg: error });
+  }
 });

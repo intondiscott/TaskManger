@@ -6,11 +6,11 @@ const connectDB = require("./db/connect");
 require("dotenv").config();
 //middleware
 app.use(express.json());
-app.use(express.static("./public"));
+app.use(express.static("../public"));
 //routes
-app.use("/api", info);
+//app.use("/.netlify/funtions/app", info);
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const startServer = async () => {
   try {
