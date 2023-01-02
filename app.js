@@ -8,7 +8,7 @@ require("dotenv").config();
 app.use(express.json());
 app.use(express.static("../public"));
 //routes
-//app.use("/.netlify/funtions/app", info);
+app.use("/app", info);
 
 const port = process.env.PORT || 3000;
 
